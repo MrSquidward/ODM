@@ -68,10 +68,6 @@ ensure_prereqs() {
         python3-setuptools
     sudo pip3 install -U pip
     sudo pip3 install -U shyaml
-    # Ubuntu 21.04's packaged cmake (3.16.3) is too old for popsift's CMakeLists.txt,
-    # which requires >= 3.24 for CUDA language support. pip's cmake wheel installs to
-    # /usr/local/bin, which precedes apt's /usr/bin/cmake on $PATH.
-    sudo pip3 install -U "cmake>=3.24"
 }
 
 # Save all dependencies in snapcraft.yaml to maintain a single source of truth.
