@@ -130,6 +130,9 @@ installreqs() {
 
     # edt requires numpy to build
     pip install --ignore-installed numpy==1.23.1
+    # edt's setup.py pulls in pbr via setup_requires, which needs tomli to parse
+    # pyproject.toml on Python < 3.11; pre-install it so that build step can find it
+    pip install tomli
     pip install --ignore-installed -r requirements.txt
     #if [ ! -z "$GPU_INSTALL" ]; then
     #fi
